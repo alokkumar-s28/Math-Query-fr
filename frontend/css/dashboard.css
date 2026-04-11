@@ -1,0 +1,59 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+.hero-bg {
+    background: linear-gradient(135deg, #0b1120 0%, #1a2634 100%);
+}
+
+/* Navbar link hover underline effect */
+.nav-link {
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #4f46e5;
+    transform: translateY(-1px);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #4f46e5;
+    transition: width 0.2s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Flip icon (mirror effect) */
+.flip-icon {
+    display: inline-block;
+    transform: scaleX(-1);
+    transition: transform 0.3s ease;
+}
+
+/* On hover, rotate the flipped icon slightly */
+.flip-icon:hover {
+    transform: scaleX(-1) rotate(15deg);
+}
+
+.toast-notify {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #1f2937;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 1000;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}

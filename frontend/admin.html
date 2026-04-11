@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathQuery | Admin CMS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="font-extrabold text-2xl">Math<span class="text-indigo-600">Query</span></span>
+                <span class="bg-red-100 text-red-800 text-xs font-bold px-2 py-1 rounded-full">Admin CMS</span>
+            </div>
+            <div class="flex gap-3">
+                <input type="password" id="adminKeyInput" placeholder="Enter Admin Key" class="border rounded-lg px-3 py-1 text-sm">
+                <button id="authBtn" class="bg-indigo-600 text-white px-4 py-1 rounded-lg hover:bg-indigo-700">Authenticate</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-5 py-8">
+        <div id="loginMessage" class="hidden bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+            <p class="text-yellow-800"><i class="fas fa-lock"></i> Please enter the admin key to access the CMS</p>
+        </div>
+
+        <div id="adminContent" style="display: none;">
+            <!-- Tabs -->
+            <div class="flex border-b mb-6">
+                <button class="tab-btn active px-6 py-2 rounded-t-lg" data-tab="enrollments">Enrollments</button>
+                <button class="tab-btn px-6 py-2 rounded-t-lg" data-tab="videos">Videos</button>
+                <button class="tab-btn px-6 py-2 rounded-t-lg" data-tab="materials">Materials</button>
+                <button class="tab-btn px-6 py-2 rounded-t-lg" data-tab="live">Live Sessions</button>
+            </div>
+
+            <!-- Enrollments Panel -->
+            <div id="enrollmentsPanel" class="tab-panel active">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold"><i class="fas fa-users"></i> Enrollment Management</h2>
+                    <span class="text-sm">Total: <span id="totalCount">0</span></span>
+                </div>
+                <div class="bg-white rounded-xl shadow overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr><th class="px-6 py-3 text-left">Date</th><th>Student</th><th>Contact</th><th>UPI ID</th><th>Status</th><th>Actions</th></tr>
+                        </thead>
+                        <tbody id="enrollmentsTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Videos Panel -->
+            <div id="videosPanel" class="tab-panel">
+                <div class="flex justify-between mb-4">
+                    <h2 class="text-xl font-bold"><i class="fas fa-video"></i> Manage Videos</h2>
+                    <button id="addVideoBtn" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">+ Add Video</button>
+                </div>
+                <div id="videoList" class="space-y-3"></div>
+            </div>
+
+            <!-- Materials Panel -->
+            <div id="materialsPanel" class="tab-panel">
+                <div class="flex justify-between mb-4">
+                    <h2 class="text-xl font-bold"><i class="fas fa-file-pdf"></i> Study Materials</h2>
+                    <button id="addMaterialBtn" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">+ Upload Material</button>
+                </div>
+                <div id="materialList" class="space-y-3"></div>
+            </div>
+
+            <!-- Live Sessions Panel -->
+            <div id="livePanel" class="tab-panel">
+                <div class="flex justify-between mb-4">
+                    <h2 class="text-xl font-bold"><i class="fas fa-calendar-alt"></i> Live Sessions</h2>
+                    <button id="addLiveBtn" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">+ Schedule Session</button>
+                </div>
+                <div id="liveList" class="space-y-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+            <h3 class="text-lg font-bold mb-4">Add/Edit Video</h3>
+            <form id="videoForm">
+                <input type="hidden" id="videoId">
+                <input id="videoTitle" placeholder="Title" class="w-full border p-2 mb-2 rounded" required>
+                <input id="videoUrl" placeholder="YouTube Embed URL" class="w-full border p-2 mb-2 rounded" required>
+                <textarea id="videoDesc" placeholder="Description" class="w-full border p-2 mb-2 rounded"></textarea>
+                <input id="videoOrder" type="number" placeholder="Order" class="w-full border p-2 mb-2 rounded" value="0">
+                <label class="flex items-center gap-2 mb-4"><input type="checkbox" id="videoPublished" checked> Published</label>
+                <div class="flex justify-end gap-2">
+                    <button type="button" class="cancel-modal px-4 py-2 border rounded">Cancel</button>
+                    <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Material Modal -->
+    <div id="materialModal" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+            <h3 class="text-lg font-bold mb-4">Upload Material</h3>
+            <form id="materialForm" enctype="multipart/form-data">
+                <input type="hidden" id="materialId">
+                <input id="materialTitle" placeholder="Title" class="w-full border p-2 mb-2 rounded" required>
+                <textarea id="materialDesc" placeholder="Description" class="w-full border p-2 mb-2 rounded"></textarea>
+                <input id="materialOrder" type="number" placeholder="Order" class="w-full border p-2 mb-2 rounded" value="0">
+                <input type="file" id="materialFile" accept=".pdf,.doc,.docx" class="w-full border p-2 mb-2 rounded">
+                <label class="flex items-center gap-2 mb-4"><input type="checkbox" id="materialPublished" checked> Published</label>
+                <div class="flex justify-end gap-2">
+                    <button type="button" class="cancel-material-modal px-4 py-2 border rounded">Cancel</button>
+                    <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Live Session Modal -->
+    <div id="liveModal" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+            <h3 class="text-lg font-bold mb-4">Schedule Live Session</h3>
+            <form id="liveForm">
+                <input type="hidden" id="liveId">
+                <input id="liveTitle" placeholder="Title" class="w-full border p-2 mb-2 rounded" required>
+                <textarea id="liveDesc" placeholder="Description" class="w-full border p-2 mb-2 rounded"></textarea>
+                <input id="liveScheduledAt" type="datetime-local" class="w-full border p-2 mb-2 rounded" required>
+                <input id="liveDuration" type="number" placeholder="Duration (minutes)" class="w-full border p-2 mb-2 rounded" value="60">
+                <input id="liveMeetingLink" placeholder="Meeting Link" class="w-full border p-2 mb-2 rounded" required>
+                <label class="flex items-center gap-2 mb-4"><input type="checkbox" id="liveActive" checked> Active</label>
+                <div class="flex justify-end gap-2">
+                    <button type="button" class="cancel-live-modal px-4 py-2 border rounded">Cancel</button>
+                    <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

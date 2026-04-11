@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Math Query | 10th Math Mastery – UPI Enrollment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <div class="flex items-center gap-2">
+                    <span class="font-extrabold text-2xl tracking-tight text-gray-800">Math<span class="text-indigo-600">Query</span></span>
+                    <span class="hidden sm:inline-block ml-2 bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded-full">Class 10</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="nav-link text-gray-700 font-medium">Home</a>
+                    <a href="#courses" class="nav-link text-gray-700 font-medium">Courses</a>
+                    <a href="#features" class="nav-link text-gray-700 font-medium">Features</a>
+                    <a href="#pricing" class="nav-link text-gray-700 font-medium">Pricing</a>
+                </div>
+                <div class="hidden md:flex items-center gap-3">
+                    <button class="px-4 py-2 text-indigo-600 font-semibold rounded-lg hover:bg-indigo-50 transition">Login</button>
+                    <button class="open-enroll-modal px-5 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md enroll-btn-glow hover:bg-indigo-700 transition">Enroll Now</button>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" class="text-gray-700 text-2xl focus:outline-none p-2 hover:bg-gray-100 rounded-lg transition">
+                        <i id="mobileMenuIcon" class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100 px-4 pb-5 pt-2 shadow-md">
+            <div class="flex flex-col space-y-2">
+                <a href="#" class="mobile-nav-link text-gray-700 py-3 px-3 rounded-lg font-medium">Home</a>
+                <a href="#courses" class="mobile-nav-link text-gray-700 py-3 px-3 rounded-lg font-medium">Courses</a>
+                <a href="#features" class="mobile-nav-link text-gray-700 py-3 px-3 rounded-lg font-medium">Features</a>
+                <a href="#pricing" class="mobile-nav-link text-gray-700 py-3 px-3 rounded-lg font-medium">Pricing</a>
+                <div class="border-t border-gray-200 pt-3 flex flex-col gap-2">
+                    <button class="w-full py-3 text-indigo-600 font-semibold border border-indigo-200 rounded-lg hover:bg-indigo-50">Login</button>
+                    <button class="open-enroll-modal w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md enroll-btn-glow">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-bg text-white reveal">
+        <div class="max-w-7xl mx-auto px-5 py-12 md:py-20">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="text-center md:text-left">
+                    <div class="inline-flex items-center bg-indigo-900/60 backdrop-blur-sm rounded-full px-4 py-1.5 text-sm font-medium border border-indigo-400/40 mb-5">
+                        <i class="fas fa-graduation-cap mr-2 text-indigo-300"></i>
+                        <span>Board Exam 2025-26 | Complete Syllabus</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Master <span class="text-indigo-300">10th Math</span> <br> with India's Best Faculty</h1>
+                    <p class="text-gray-200 text-lg mt-5 max-w-lg mx-auto md:mx-0">2000+ practice questions, live doubt sessions & mock tests. Everything you need to score 95%+.</p>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
+                        <button class="open-enroll-modal btn-primary px-7 py-3 rounded-xl text-white font-bold shadow-lg flex items-center gap-2"><i class="fas fa-rocket"></i> Enroll for ₹299 Only</button>
+                        <button class="border border-white/40 text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/10 transition"><i class="fas fa-play-circle"></i> Watch Free Demo</button>
+                    </div>
+                </div>
+                <div class="flex justify-center md:justify-end">
+                    <div class="phone-mockup-horizontal">
+                        <div class="phone-frame-horizontal">
+                            <div class="phone-notch-horizontal"></div>
+                            <div class="phone-screen-horizontal">
+                                <video id="demoVideo" class="phone-video-horizontal" poster="path/to/poster.jpg" controls autoplay muted loop playsinline>
+                                    <source src="fontvid.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="phone-home-bar-horizontal"></div>
+                        </div>
+                        <p class="text-center text-indigo-200 text-xs mt-3 flex items-center justify-center gap-1"><i class="fas fa-play-circle"></i> Watch sample lesson (landscape)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="courses" class="py-16 bg-white reveal">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-wider"><i class="fas fa-book-open mr-1"></i> Complete Curriculum</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2">Everything in <span class="text-indigo-600">One Bundle</span> – Only ₹299</h2>
+                <p class="text-gray-500 mt-3">Full access to all 10th math modules, recorded lectures, live classes, and test series.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-50 rounded-2xl shadow-md overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-36 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center"><i class="fas fa-square-root-alt text-white text-5xl"></i></div>
+                    <div class="p-5"><h3 class="font-bold text-xl">Algebra – Polynomials & Quadratic</h3><p class="text-gray-500 text-sm mt-1">12 hours • 45 videos</p><div class="flex items-center gap-1 text-yellow-400 mt-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 text-xs ml-1">(4.8)</span></div><button class="open-enroll-modal mt-4 w-full py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition">Enroll Now</button></div>
+                </div>
+                <div class="bg-gray-50 rounded-2xl shadow-md overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-36 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center"><i class="fas fa-chart-line text-white text-5xl"></i></div>
+                    <div class="p-5"><h3 class="font-bold text-xl">Coordinate Geometry</h3><p class="text-gray-500 text-sm mt-1">8 hours • 32 videos</p><div class="flex items-center gap-1 text-yellow-400 mt-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 text-xs ml-1">(5.0)</span></div><button class="open-enroll-modal mt-4 w-full py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition">Enroll Now</button></div>
+                </div>
+                <div class="bg-gray-50 rounded-2xl shadow-md overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-36 bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center"><i class="fas fa-draw-polygon text-white text-5xl"></i></div>
+                    <div class="p-5"><h3 class="font-bold text-xl">Trigonometry & Applications</h3><p class="text-gray-500 text-sm mt-1">10 hours • 38 videos</p><div class="flex items-center gap-1 text-yellow-400 mt-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 text-xs ml-1">(4.9)</span></div><button class="open-enroll-modal mt-4 w-full py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition">Enroll Now</button></div>
+                </div>
+                <div class="bg-gray-50 rounded-2xl shadow-md overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-36 bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center"><i class="fas fa-chart-simple text-white text-5xl"></i></div>
+                    <div class="p-5"><h3 class="font-bold text-xl">Statistics & Probability</h3><p class="text-gray-500 text-sm mt-1">7 hours • 28 videos</p><div class="flex items-center gap-1 text-yellow-400 mt-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 text-xs ml-1">(4.7)</span></div><button class="open-enroll-modal mt-4 w-full py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition">Enroll Now</button></div>
+                </div>
+            </div>
+            <div class="text-center mt-8"><p class="text-gray-500">+ more modules: Real Numbers, Circles, Areas, Surface Areas & Volumes</p></div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-12 bg-indigo-50/40 reveal">
+        <div class="max-w-4xl mx-auto px-5">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex border border-indigo-100 pricing-card">
+                <div class="md:w-1/2 p-8 bg-gradient-to-br from-indigo-600 to-indigo-800 text-white text-center md:text-left">
+                    <i class="fas fa-rupee-sign text-3xl mb-3"></i><h3 class="text-3xl font-bold">Enrollment Fees</h3>
+                    <p class="text-indigo-100 mt-2">Full access to all 10th math courses</p>
+                    <div class="mt-4"><span class="text-5xl font-extrabold">₹299</span></div>
+                    <p class="text-indigo-100 text-sm mt-2">One-time payment • Lifetime access</p>
+                </div>
+                <div class="md:w-1/2 p-8">
+                    <h4 class="text-2xl font-bold text-gray-800">What's included?</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li><i class="fas fa-check-circle text-green-500"></i> Video Lessons (100+ animated videos)</li>
+                        <li><i class="fas fa-check-circle text-green-500"></i> Mock Tests (Full-length & chapter-wise)</li>
+                        <li><i class="fas fa-check-circle text-green-500"></i> Doubt Clear – Live & 24/7 support</li>
+                        <li><i class="fas fa-check-circle text-green-500"></i> Chapter-wise assignments & solutions</li>
+                        <li><i class="fas fa-check-circle text-green-500"></i> Telegram support group</li>
+                    </ul>
+                    <button class="open-enroll-modal mt-6 w-full btn-primary text-white font-bold py-3 rounded-xl shadow-lg">Enroll for ₹299 Only</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-16 bg-white reveal">
+        <div class="max-w-7xl mx-auto px-5 text-center">
+            <h3 class="text-3xl font-bold text-gray-800">Why <span class="text-indigo-600">10th graders</span> love us</h3>
+            <p class="text-gray-500 mt-2">Designed specifically for board exam success</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+                <div class="bg-gray-50 p-6 rounded-2xl transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg">
+                    <i class="fas fa-file-alt text-indigo-700 text-3xl"></i>
+                    <h4 class="text-xl font-bold mt-3">Formula Sheets</h4>
+                    <p class="text-gray-500 mt-2">Quick revision with chapter-wise formula sheets for last-minute prep.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-2xl transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg">
+                    <i class="fas fa-calendar-alt text-indigo-700 text-3xl"></i>
+                    <h4 class="text-xl font-bold mt-3">Monthly Tests</h4>
+                    <p class="text-gray-500 mt-2">Regular assessments to track progress and build exam confidence.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-2xl transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg">
+                    <i class="fas fa-comments text-indigo-700 text-3xl"></i>
+                    <h4 class="text-xl font-bold mt-3">Clear Any Doubt</h4>
+                    <p class="text-gray-500 mt-2">Live doubt sessions and 24/7 support to resolve queries instantly.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-2xl transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg">
+                    <i class="fas fa-chalkboard-teacher text-indigo-700 text-3xl"></i>
+                    <h4 class="text-xl font-bold mt-3">Define from Basic Level</h4>
+                    <p class="text-gray-500 mt-2">Concepts explained from scratch – no prior knowledge required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment Modal -->
+    <div id="enrollmentModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden transition-all duration-200 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full mx-4 shadow-2xl transform transition-all modal-card">
+            <div class="flex justify-between items-center border-b p-5 modal-header">
+                <h3 class="text-2xl font-bold text-gray-800">Complete Enrollment</h3>
+                <button id="closeFormModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+            </div>
+            <div class="p-6">
+                <p class="text-sm text-indigo-600 font-semibold mb-4">Fill details to proceed to UPI payment</p>
+                <form id="enrollForm">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-1">Full Name *</label>
+                        <input type="text" id="fullName" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-1">Email Address *</label>
+                        <input type="email" id="email" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-1">Phone Number *</label>
+                        <input type="tel" id="phone" maxlength="10" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500" placeholder="Enter your mobile number">
+                        <div id="phoneError" class="error-text hidden"></div>
+                    </div>
+                    <div class="mb-5">
+                        <label class="block text-gray-700 font-medium mb-1">Board *</label>
+                        <select id="board" class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white">
+                            <option value="BSE Odisha">BSE Odisha Board</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="proceedToPaymentBtn" class="w-full btn-primary text-white font-bold py-3 rounded-xl shadow-md">Proceed to Payment →</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden transition-all duration-200 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-sm w-full mx-4 shadow-2xl modal-card">
+            <div class="flex justify-between items-center border-b p-4 modal-header">
+                <h3 class="text-xl font-bold text-gray-800 flex items-center gap-2"><i class="fab fa-google-pay text-indigo-600"></i> UPI Payment</h3>
+                <button id="closePaymentModalBtn" class="text-gray-400 hover:text-gray-600 text-2xl leading-none">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="flex flex-col gap-3">
+                    <div class="text-center">
+                        <p class="text-3xl font-black text-indigo-600">₹299</p>
+                        <p class="text-gray-500 text-xs">Lifetime access · One-time payment</p>
+                        <div class="mt-1 inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full"><i class="fas fa-shield-alt"></i> Secure UPI (Demo)</div>
+                    </div>
+                    <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-3 border border-indigo-100">
+                        <p class="font-medium text-gray-700 text-sm flex items-center justify-center gap-1 mb-2"><i class="fas fa-qrcode text-indigo-600"></i> Scan QR Code</p>
+                        <div class="flex justify-center">
+                            <div class="qr-container">
+                                <img src="https://quickchart.io/qr?text=upi://pay?pa=kumaralok952p@okaxis&pn=Math%20Query&am=299&cu=INR&size=160&margin=2" alt="UPI QR Code" class="w-32 h-32 border border-indigo-200 rounded-lg shadow-sm">
+                            </div>
+                        </div>
+                        <div class="flex justify-center mt-3">
+                            <a href="upi://pay?pa=kumaralok952p@okaxis&pn=Math%20Query&am=299&cu=INR" class="bg-indigo-600 text-white py-1.5 px-4 rounded-lg text-center font-semibold hover:bg-indigo-700 transition text-sm flex items-center gap-1 upi-button"><i class="fab fa-google-pay"></i> Pay with UPI App</a>
+                        </div>
+                        <p class="text-[10px] text-center text-gray-500 mt-2">⭐ Demo mode: after payment simulation, submit proof & get instant confirmation</p>
+                    </div>
+
+                    <div class="border-t border-gray-200 pt-3">
+                        <p class="text-xs font-semibold text-gray-700 mb-2">📸 After payment, submit your proof:</p>
+                        <div class="flex flex-col gap-2">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Your UPI ID *</label>
+                                <input type="text" id="payerUpiId" class="w-full border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:ring-2 focus:ring-indigo-500" placeholder="e.g., example@okhdfcbank">
+                                <div id="upiIdError" class="error-text hidden text-xs">Please enter your UPI ID</div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Payment Screenshot *</label>
+                                <div class="flex items-center gap-2">
+                                    <label for="paymentScreenshot" class="file-label flex-1 bg-gray-100 border border-gray-300 rounded-lg px-3 py-1.5 text-sm text-gray-600 text-center cursor-pointer hover:bg-gray-200 transition">
+                                        <i class="fas fa-cloud-upload-alt mr-1"></i> Choose file
+                                    </label>
+                                    <input type="file" id="paymentScreenshot" accept="image/jpeg,image/png,image/jpg" class="hidden">
+                                    <span id="fileNameDisplay" class="text-xs text-gray-500 truncate max-w-[100px]">No file</span>
+                                </div>
+                                <div id="screenshotError" class="error-text hidden text-xs">Please upload a screenshot (JPG/PNG)</div>
+                            </div>
+                        </div>
+                        <button id="submitPaymentProofBtn" class="w-full mt-3 bg-green-600 text-white py-1.5 rounded-lg font-semibold hover:bg-green-700 transition text-sm flex items-center justify-center gap-1 upi-button">
+                            <i class="fas fa-check-circle"></i> Submit Payment Proof
+                        </button>
+                        <p class="text-[10px] text-gray-400 text-center mt-2">✅ Enrollment confirmed instantly in demo mode. Your data is stored locally.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-gray-300 py-10">
+        <div class="max-w-7xl mx-auto px-5 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div><span class="font-bold text-white text-lg">Math Query</span><p class="text-sm mt-2">Empowering 10th graders to excel in mathematics.</p></div>
+            <div>
+                <h5 class="font-semibold text-white">Contact Us</h5>
+                <ul class="mt-2 space-y-2 text-sm">
+                    <li class="flex items-center gap-2"><i class="fas fa-phone-alt w-4 text-indigo-400 rotated-phone-icon"></i><a href="tel:+918926109490" class="hover:text-indigo-400">8926109490</a></li>
+                    <li class="flex items-center gap-2"><i class="fas fa-envelope w-4 text-indigo-400"></i><a href="mailto:support@mathquery.com" class="hover:text-indigo-400">support@mathquery.com</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-semibold text-white">Resources</h5>
+                <ul class="mt-2 space-y-1 text-sm">
+                    <li><a href="#" class="hover:text-indigo-400">Video Lessons</a></li>
+                    <li><a href="#" class="hover:text-indigo-400">Formula Sheets</a></li>
+                </ul>
+            </div>
+            <div><h5 class="font-semibold text-white">Download App</h5><div class="flex gap-3 mt-2"><i class="fab fa-google-play text-2xl hover:text-indigo-400 cursor-pointer"></i><i class="fab fa-apple text-2xl hover:text-indigo-400 cursor-pointer"></i></div></div>
+        </div>
+        <div class="text-center text-gray-500 text-sm pt-8 border-t border-gray-800 mt-8">© 2025 Math Query – Class 10 Math Special. UPI Demo Integration</div>
+    </footer>
+
+    <script src="js/function.js"></script>
+</body>
+</html>
